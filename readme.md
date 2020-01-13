@@ -9,18 +9,19 @@
 
 ## Install
 
-Download [manually](https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css) or with npm:
+Download [manually](https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css), from [CDNJS](https://cdnjs.com/libraries/github-markdown-css), or with npm:
 
 ```
-$ npm install --save github-markdown-css
+$ npm install github-markdown-css
 ```
 
 
 ## Usage
 
-Import the `github-markdown.css` file and add a `markdown-body` class to the container of your rendered Markdown and set a width for it. GitHub uses `980px` width and `45px` padding.
+Import the `github-markdown.css` file and add a `markdown-body` class to the container of your rendered Markdown and set a width for it. GitHub uses `980px` width and `45px` padding, and `15px` padding for mobile.
 
 ```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="github-markdown.css">
 <style>
 	.markdown-body {
@@ -30,12 +31,20 @@ Import the `github-markdown.css` file and add a `markdown-body` class to the con
 		margin: 0 auto;
 		padding: 45px;
 	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
 </style>
 <article class="markdown-body">
 	<h1>Unicorns</h1>
 	<p>All the things</p>
 </article>
 ```
+
+If you want code syntax highlighted, use GitHub Flavored Markdown rendered from [GitHub's `/markdown` API](https://developer.github.com/v3/markdown/).
 
 
 ## How
@@ -50,4 +59,4 @@ Run `npm run make` to update the CSS.
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
